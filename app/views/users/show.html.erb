@@ -1,7 +1,64 @@
 <div class="row">
   <div class="offset-4 col-md-4">
-      <h3 class='text-center'>
-        <%= @user.name %>
-      </h3>
+      <h1 class='text-center'>
+        Events Created By Me 
+      </h1>
+      <hr>
+      <hr>
+      <h2> Past Events </h2>
+      <p >
+        <% @user.created_events.past.each do |events| %>
+          <%=events.description%>
+          <br>
+          <small> <%=events.event_date%> </small>
+          <%= link_to 'Event', events %>
+          <br>
+          <br>
+          <br>
+        <% end %>
+      </p>
+      <h2> Upcoming Events </h2>
+      <p>
+        <% @user.created_events.future.each do |events| %>
+          <%=events.description%>
+          <br>
+          <small> <%=events.event_date%> </small>
+          <%= link_to 'Event', events %>
+          <br>
+          <br>
+          <br>
+        <% end %>
+      </p>
+
+      <h1 class='text-center'>
+        Invited Events
+      </h1>
+      <hr>
+      <hr>
+      <h2> Past Events </h2>
+      <p class='text-center'>
+        <% @user.attended_events.past.each do |events| %>
+          <%=events.description%>
+          <br>
+          <small> <%=events.event_date%> </small>
+          <%= link_to 'Event', events %>
+          <br>
+          <br>
+          <br>
+        <% end %>
+      </p>
+      <h2> Upcoming Events </h2>
+      <p>
+        <% @user.attended_events.future.each do |events| %>
+          <%=events.description%>
+          <br>
+          <small> <%=events.event_date%> </small>
+          <%= link_to 'Event', events %>
+          <br>
+          <br>
+          <br>
+        <% end %>
+      </p>
+
   </div>
 </div>
