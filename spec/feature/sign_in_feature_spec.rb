@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'the signin process', type: :feature do
-  before :each do
-    User.create(name: 'user')
-  end
+  let(:u) { User.create(name: 'user') }
 
   it 'signs me in' do
+    u.save
     visit '/login'
     within('.login-form') do
       fill_in 'Name', with: 'user'

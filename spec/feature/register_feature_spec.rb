@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'the register process', type: :feature do
-  before :each do
-    User.new(name: 'user')
-  end
+  let(:u) { User.new(name: 'user') }
 
   it 'register user' do
     visit '/users/new'
