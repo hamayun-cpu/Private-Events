@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome"
+      flash[:success] = 'Welcome'
       redirect_to @user
     else
       render 'new'
@@ -17,9 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = current_user
-    end
+    @user = current_user if current_user
   end
 
   private
@@ -27,5 +25,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name)
   end
-
 end

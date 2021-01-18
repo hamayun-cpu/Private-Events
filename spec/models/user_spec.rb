@@ -16,5 +16,4 @@ RSpec.describe User, type: :model do
       expect(u.errors[:name]).to_not include("can't be blank")
     end
   end
-
 end
