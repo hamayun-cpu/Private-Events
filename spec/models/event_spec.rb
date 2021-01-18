@@ -35,7 +35,7 @@ RSpec.describe Event, type: :model do
 
     it 'if date present but wrong format' do
       u = Event.new
-      u.date = 'qwer'
+      u.event_date = 'qwer'
       u.valid?
       expect(u.errors[:event_date]).to include("can't be blank")
     end
@@ -43,12 +43,12 @@ RSpec.describe Event, type: :model do
 
   describe 'all presence' do
     it 'if creator_id not present' do
-      expect { Event.create!(name: 'event', description: 'description', date: '2020-11-22 18:42:00') }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Creator must exist')
+      expect { Event.create!(description: 'description', event_date: '2020-11-22 18:42:00') }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Creator must exist')
     end
 
     it 'if all present' do
-      User.create!(username: 'test1', password: 'pass')
-      expect(Event.create!(name: 'event', description: 'description', date: '2020-11-22 18:42:00', creator_id: User.find(1).id).valid?).to be true
+      User.create!(name: 'test1')
+      expect(Event.create!(description: 'description', event_date: '2020-11-22 18:42:00', creator_id: User.find(1).id).valid?).to be true
     end
   end
 end

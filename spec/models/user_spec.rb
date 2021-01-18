@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
     it 'if name present' do
       u = User.new
-      u.username = 'user'
+      u.name = 'user'
       u.valid?
       expect(u.errors[:name]).to_not include("can't be blank")
     end

@@ -11,14 +11,14 @@ RSpec.describe 'Events', type: :request do
   describe 'GET /show' do
     it 'redirects to sign in if not signed' do
       get '/events/1'
-      expect(response).to redirect_to(sign_in_path)
+      expect(response).to redirect_to(login_path)
     end
   end
 
   describe 'GET /new' do
     it 'redirects to sign in if not signed' do
       get '/events/new'
-      expect(response).to redirect_to(sign_in_path)
+      expect(response).to redirect_to(login_path)
     end
   end
 end
