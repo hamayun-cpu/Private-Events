@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user if current_user
+    @past_events = current_user.created_events.past
+    @upcoming_events = current_user.created_events.future
   end
 
   private

@@ -7,7 +7,7 @@
       <%= render 'events/errors' %>
 
       <%= f.label :description %>
-      <%= f.text_field :description, class: 'mb-1 form-control' %>
+      <%= f.text_area :description, class: 'mb-1 form-control' %>
 
       <%= f.label :event_date %>
       <%= f.datetime_select :event_date, ampm: true, order: %i[day month year], default: 0.days.from_now.localtime, class: 'mb-1 form-control' %>
