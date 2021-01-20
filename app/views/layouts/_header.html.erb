@@ -1,0 +1,21 @@
+<nav class="navbar mb-2">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "All Events", events_path, class: "mx-2" %>
+    </div>
+    <% if logged_in? %>
+    <ul class="nav navbar-left">
+      <li><%= link_to "#{current_user.name}", root_path, class: "mx-2"%></li> 
+      </ul>
+      <ul class="nav navbar-right ">
+      <li><%= link_to "Create Event", new_event_path, class: "mx-2"%></li> 
+        <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
+      </ul>
+    <% else %>
+      <ul class="nav navbar-right ">
+        <li><%= link_to "Log in", login_path, class: "mx-2" %></li> 
+        <li><%= link_to "Sign up", signup_path, class: "mx-2" %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

@@ -1,0 +1,15 @@
+
+<h1 class='text-center'>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-4 offset-4">
+    <%= form_for @user, html:{ class: "register-form" } do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name, 'Name', class: "username-label" %>
+      <%= f.text_field :name, class: "username" %>
+
+      <%= f.submit "Register", class: "mt-2 btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="offset-4 col-md-4">
+      <h3 class='text-center'>
+        <%= @event.description %>
+      </h3>
+      <p class='text-center'>
+        <%= @event.event_date %>
+      </p>
+      <h3 class='text-center'>
+        Attendees are :
+      </h3>
+      <% @event.attendees.each do |attendee| %> 
+        <% if attendee %>
+          <small> <%= attendee.name %> </small>
+          <br>
+        <% end %>
+      <% end %>
+  </div>
+</div>
